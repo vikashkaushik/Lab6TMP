@@ -1,8 +1,8 @@
 /*
  * Project Lab6TMP
- * Description:
- * Author:
- * Date:
+ * Description: Using tmp36 the oled display displays the temperature reading.
+ * Author: Vikash Kaushik
+ * Date: 7/3/21
  */
 #include "oled-wing-adafruit.h"
 SYSTEM_MODE(MANUAL);
