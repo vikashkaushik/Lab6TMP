@@ -13,9 +13,13 @@ void setup() {
   // Put initialization like pinMode and begin functions here.
   // sets up the OLED display and sets input as tmp36
   pinMode(A4, INPUT);
-  display.display();  // cause the display to be updated
-  display.clearDisplay();
   display.setup();
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+  display.display();  // cause the display to be updated
+
   Serial.begin(9600); 
 }
 
@@ -27,14 +31,12 @@ void loop() {
   double voltage = (reading * 3.3) / 4095.0;
   double temperature = (voltage - 0.5) * 100;
   display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
   display.setCursor(0,0);
   display.print(temperature); // prints temp in C
   display.println(" C");
-  display.print(voltage*100); // prints temp in F
+  display.print((temperature)*(9/5)+32); // prints temp in F
   display.println(" F");
   display.display();  // cause the display to be updated
   Serial.println(temperature); 
-  Serial.println(voltage*100); 
+  Serial.println((temperature)*(9/5)+32); 
 }
